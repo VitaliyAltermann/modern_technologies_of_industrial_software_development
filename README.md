@@ -1,0 +1,2 @@
+# modern_technologies_of_industrial_software_development
+Современные технологии разработки промышленного программного обеспечения
