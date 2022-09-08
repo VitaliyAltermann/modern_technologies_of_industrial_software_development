@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By: Vitaliy Perhurov
+Main-Class: ru.rsatu.lr1.ConsoleApp
