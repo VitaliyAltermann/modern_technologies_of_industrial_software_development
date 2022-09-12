@@ -1,7 +1,6 @@
 package ru.rsatu.utils;
 
 public class Concat {
-
    public static void Print(Concat cnct)
    {
       System.out.println(cnct.Get());
