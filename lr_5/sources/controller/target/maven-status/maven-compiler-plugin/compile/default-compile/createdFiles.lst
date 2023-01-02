@@ -1,0 +1,13 @@
+ru/rsatu/lr5/service/BooksService.class
+ru/rsatu/lr5/resource/BookResource.class
+ru/rsatu/lr5/pojo/entity/Author.class
+ru/rsatu/lr5/mapper/AuthorMapperImpl.class
+ru/rsatu/lr5/repository/BooksRepository.class
+ru/rsatu/lr5/pojo/dto/AuthorDto.class
+ru/rsatu/lr5/pojo/entity/Book.class
+ru/rsatu/lr5/repository/AuthorRepository.class
+ru/rsatu/lr5/service/AuthorsService.class
+ru/rsatu/lr5/mapper/BookMapper.class
+ru/rsatu/lr5/mapper/AuthorMapper.class
+ru/rsatu/lr5/pojo/dto/BookDto.class
+ru/rsatu/lr5/mapper/BookMapperImpl.class

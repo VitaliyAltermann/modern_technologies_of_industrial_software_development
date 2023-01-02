@@ -1,0 +1,27 @@
+1) Запустить в вдокере сервер БД (на своём порту 5432):
+   docker start postgres-quarkus-hibernate
+2) Запустить из докера keycloak (на своём порту 6648).
+   /*потом появиться*/
+3) Из папки controller собрать и запустить приложение с помощью мавена:
+   mvn clean install quarkus:dev
+4) Если не запускается view выполниит:
+   npm rebuild
+
+
+
+Команды для работы с докером:
+ Для запуска демона докера ввести последовательно следующие команды:
+ sudo systemctl unmask docker
+ sudo systemctl start docker
+
+ Для просмотра состояния докера выполнить следующую команду:
+ sudo systemctl status docker
+ 
+ Команда для создания и запуска контейнера в докере:
+ docker run --rm=false --name postgres-quarkus-hibernate -e POSTGRES_USER=hibernate -e POSTGRES_PASSWORD=hibernate -e POSTGRES_DB=hibernate -p 5432:5432 postgres:12
+ 
+ Команда для остановки контейнера (из другого терминала):
+ docker stop postgres-quarkus-hibernate
+ 
+ Команда для запуска контейнера:
+ docker start postgres-quarkus-hibernate

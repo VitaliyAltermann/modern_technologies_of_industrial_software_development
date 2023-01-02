@@ -1,0 +1,11 @@
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/mapper/BookMapper.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/pojo/entity/Author.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/mapper/AuthorMapper.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/service/BooksService.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/pojo/entity/Book.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/pojo/dto/BookDto.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/repository/AuthorRepository.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/repository/BooksRepository.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/pojo/dto/AuthorDto.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/resource/BookResource.java
+/mnt/7999679B46EE88E1/4_Projects/modern_technologies_of_industrial_software_development/lr_5/sources/controller/src/main/java/ru/rsatu/lr5/service/AuthorsService.java
