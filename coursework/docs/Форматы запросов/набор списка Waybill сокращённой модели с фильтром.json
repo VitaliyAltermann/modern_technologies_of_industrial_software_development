@@ -1,0 +1,66 @@
+Имя метода: loadWaybillFilter
+Формат параметров:
+   anchor (первичный ключ накладной): null или 15
+   direction (направление набора): null, "left" или "right"
+   limit (ограничение на количество записей): 5
+   number (номер накладной): null или "№ 251-456 ооо сзп"
+   dateMin (дата послупления накладной): null или "11.12.2021"
+   dateMax (дата послупления накладной): null или "11.12.2022"
+   costMin (минимальная общая стоимость товаров по накладной): null или 50
+   costMax (максимальная общая стоимость товаров по накладной): null или 50
+   employeeId (сотрудник, принявший груз): null или 11
+Формат результата:
+   {
+     "waybills": [
+       {
+         "id": 1,
+         "contract": "№15-65 от 11.05.2013", // состоит из 2 полей: "<contract.number> от <contract.dateOfCreate>"
+         "number": "hfjds",
+         "dateOfReceipt": "11.12.2022",
+         "location": "base",
+         "cost": 100,
+         "deliverer": "das",
+         "receiver": "Иванов Иван Иваноович",
+         "detailsWaybill": [
+           {
+             "cargo": "Принтер HP, шт", // состоит из 2 полей: "<cargoName>, <unitOfMeasure>"
+             "number": 7,
+             "price": 5000,
+             "cost": 35000
+           },
+           {
+             "cargo": "Сканер Epson, шт", // состоит из 2 полей: "<cargoName>, <unitOfMeasure>"
+             "number": 8,
+             "price": 8,
+             "cost": 64
+           }
+         ]
+       },
+       {
+         "id": 1,
+         "contract": "номер от числа",
+         "number": "hfjds",
+         "dateOfReceipt": "11.12.2022",
+         "location": "base",
+         "cost": 100,
+         "deliverer": "das",
+         "receiver": "Иванов Иван Иваноович",
+         "detailsWaybill": [
+           {
+             "cargo": "Цемент, кг",
+             "number": 7,
+             "price": 5000,
+             "cost": 35000
+           },
+           {
+             "cargo": "Жидкие стены, л",
+             "number": 8,
+             "price": 8,
+             "cost": 64
+           }
+         ]
+       }
+     ],
+     "bLeftDis": true,
+     "bRightDis": false
+   }

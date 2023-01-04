@@ -1,0 +1,26 @@
+Имя метода: createWaybill и updateWaybill
+Формат результата: -
+Формат параметров:
+{
+  "id": null,
+  "contractId": 1,
+  "number": "керо",
+  "dateOfReceipt": "2023-01-02",
+  "location": "куеквоп",
+  "deliverer": "кевнапро",
+  "receiverId": 3,
+  "detailsWaybill": [
+    {
+      "id": null,
+      "cargoId": 2,
+      "number": "5",
+      "price": "5"
+    },
+    {
+      "id": null,
+      "cargoId": 2,
+      "number": "8",
+      "price": "9"
+    }
+  ]
+}

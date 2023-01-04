@@ -1,0 +1,21 @@
+Имя метода: loadWaybill
+Формат параметров: -
+Формат результата:
+{
+  "id": 1,
+  "contractId": 1,
+  "number": "hfjds",
+  "dateOfReceipt": "11.12.2022",
+  "location": "base",
+  "deliverer": "das",
+  "receiverId": 1,
+  "detailsWaybill": [
+    {
+      "id": 2,
+      "cargoId": 2,
+      "cargoName": "Принтер HP, шт", // состоит из 2 полей: "<cargoName>, <unitOfMeasure>"
+      "number": 7,
+      "price": 5
+    }
+  ]
+}

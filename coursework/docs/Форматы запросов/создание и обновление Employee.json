@@ -1,0 +1,7 @@
+Имя метода: createEmployee и updateEmployee
+Формат результата: -
+Формат параметров:
+{
+  "id": "this.id",
+  "name": "this.name"
+}

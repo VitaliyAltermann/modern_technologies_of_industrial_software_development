@@ -1,0 +1,31 @@
+1) Запустить в вдокере сервер БД (на своём порту 5445):
+   docker start postgres-coursework
+2) Запустить из докера keycloak (на своём порту 8180).
+   docker start keycloak
+3) Из папки controller собрать и запустить приложение с помощью мавена:
+   ./mvnw clean install quarkus:dev
+4) Запустить view:
+   npm run serve
+
+
+Если view не запускается, то нужно пересобрать:
+   npm rebuild
+
+
+
+Команды для работы с докером:
+ Для запуска демона докера ввести последовательно следующие команды:
+ sudo systemctl unmask docker
+ sudo systemctl start docker
+
+ Для просмотра состояния докера выполнить следующую команду:
+ sudo systemctl status docker
+ 
+ Команда для создания и запуска контейнера в докере:
+ docker run --rm=false --name postgres-coursework -e POSTGRES_USER=coursework -e POSTGRES_PASSWORD=coursework -e POSTGRES_DB=coursework -p 5432:5432 postgres:12
+ 
+ Команда для остановки контейнера (из другого терминала):
+ docker stop postgres-coursework
+ 
+ Команда для запуска контейнера:
+ docker start postgres-coursework

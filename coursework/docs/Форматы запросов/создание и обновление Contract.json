@@ -1,0 +1,9 @@
+Имя метода: createContract и updateContract
+Формат результата: -
+Формат параметров:
+{
+  "id": "this.id",
+  "date": "this.date",
+  "number": "this.number",
+  "contractor": "this.contractor"
+}

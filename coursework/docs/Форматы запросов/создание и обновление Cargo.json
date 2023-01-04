@@ -1,0 +1,8 @@
+Имя метода: createCargo и updateCargo
+Формат результата: -
+Формат параметров:
+{
+  "id": "this.id",
+  "name": "this.name",
+  "unit": "this.unit"
+}
