@@ -107,7 +107,7 @@ name:'createCargo', //имя для подключения
     sendRequest(){  // отправка запроса и отключение кнопки
       this.bdis=true
 
-      if ((this.name != '')&&(this.unit != '')){
+      if ((this.name != '')&&(this.unit != '')&&(this.unit != null)){
         if ((this.id !=null)&&(this.id!='')){ //если выбран ИД сотрудника, то обновляются данные, иначе - добавляются
           axios.put('/server/cargo/updateCargo',{
             id:this.id,
