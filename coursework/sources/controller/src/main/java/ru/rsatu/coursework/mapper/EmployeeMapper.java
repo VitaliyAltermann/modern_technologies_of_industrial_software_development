@@ -1,5 +1,6 @@
 package ru.rsatu.coursework.mapper;
 
+import io.quarkus.security.identity.SecurityIdentity;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -8,6 +9,7 @@ import ru.rsatu.coursework.pojo.dto.EmployeeSaveModel;
 import ru.rsatu.coursework.pojo.dto.EmployeeViewModel;
 import ru.rsatu.coursework.pojo.entity.Employee;
 
+import javax.inject.Inject;
 import java.sql.Timestamp;
 
 /**
@@ -15,14 +17,8 @@ import java.sql.Timestamp;
  */
 @Mapper(componentModel = "cdi")
 public abstract class EmployeeMapper {
-    /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "name", source = "name")
-    public abstract EmployeeViewModel toEmployeeViewModel(Employee from );
+    @Inject
+    SecurityIdentity securityIdentity;
 
     /**
      * Преобразовать в модель представления
@@ -31,7 +27,16 @@ public abstract class EmployeeMapper {
      */
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
-    public abstract EmployeeSaveModel toEmployeeSaveModel( Employee from );
+    public abstract EmployeeViewModel toEmployeeViewModel(Employee from);
+
+    /**
+     * Преобразовать в модель представления
+     * @param from модель БД
+     * @return модель представления
+     */
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "name", source = "name")
+    public abstract EmployeeSaveModel toEmployeeSaveModel(Employee from);
 
     /**
      * Преобразовать в модель БД
@@ -40,7 +45,7 @@ public abstract class EmployeeMapper {
      */
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
-    public abstract Employee toEmployee( EmployeeSaveModel from );
+    public abstract Employee toEmployee(EmployeeSaveModel from);
 
     /**
      * Постобработка модели БД
@@ -48,6 +53,7 @@ public abstract class EmployeeMapper {
      */
     @AfterMapping
     protected void updateEmployeeAfterMapping(@MappingTarget Employee db_model) {
-        db_model.setRecordChangeTS( new Timestamp(System.currentTimeMillis()));
+        db_model.setRecordChangeAuthor(securityIdentity.getPrincipal().getName());
+        db_model.setRecordChangeTS(new Timestamp(System.currentTimeMillis()));
     }
 }

@@ -1,5 +1,6 @@
 package ru.rsatu.coursework.mapper;
 
+import io.quarkus.security.identity.SecurityIdentity;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,6 +20,8 @@ import java.sql.Timestamp;
  */
 @Mapper(componentModel = "cdi", imports = {Cargo.class, String.class})
 public abstract class DetailWaybillMapper {
+    @Inject
+    SecurityIdentity securityIdentity;
     @Inject
     EntityManager entityManager;
 
@@ -86,6 +89,7 @@ public abstract class DetailWaybillMapper {
      */
     @AfterMapping
     protected void updateDetailWaybillAfterMapping(@MappingTarget DetailWaybill db_model) {
-        db_model.setRecordChangeTS( new Timestamp(System.currentTimeMillis()));
+        db_model.setRecordChangeAuthor(securityIdentity.getPrincipal().getName());
+        db_model.setRecordChangeTS(new Timestamp(System.currentTimeMillis()));
     }
 }

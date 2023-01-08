@@ -1,6 +1,5 @@
 package ru.rsatu.coursework.resource;
 
-import io.quarkus.security.identity.SecurityIdentity;
 import ru.rsatu.coursework.pojo.dto.EmployeeSaveModel;
 import ru.rsatu.coursework.pojo.dto.EmployeeViewModel;
 import ru.rsatu.coursework.service.EmployeeServ;
@@ -18,8 +17,6 @@ import java.util.List;
 public class EmployeeRes {
     @Inject
     EmployeeServ serv;
-    @Inject
-    SecurityIdentity securityIdentity;
 
     /**
      * Получить список view-моделей сотрудников

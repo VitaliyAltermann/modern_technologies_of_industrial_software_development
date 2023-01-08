@@ -1,5 +1,6 @@
 package ru.rsatu.coursework.mapper;
 
+import io.quarkus.security.identity.SecurityIdentity;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
  */
 @Mapper(componentModel = "cdi", imports = {SimpleDateFormat.class}, uses = DetailWaybillMapper.class)
 public abstract class WaybillMapper {
+    @Inject
+    SecurityIdentity securityIdentity;
     @Inject
     EntityManager entityManager;
     @Inject
@@ -129,7 +132,7 @@ public abstract class WaybillMapper {
         db_model.setDetails(details);
 
         // Обновляем общую стоимость
-        Double total_cost = 0.0;
+        double total_cost = 0.0;
         for (DetailWaybill detail : details) {
             total_cost += detail.getPrice() * detail.getQuantity();
         }
@@ -142,6 +145,7 @@ public abstract class WaybillMapper {
      */
     @AfterMapping
     protected void updateWaybillAfterMapping(@MappingTarget Waybill db_model) {
-        db_model.setRecordChangeTS( new Timestamp(System.currentTimeMillis()));
+        db_model.setRecordChangeAuthor(securityIdentity.getPrincipal().getName());
+        db_model.setRecordChangeTS(new Timestamp(System.currentTimeMillis()));
     }
 }

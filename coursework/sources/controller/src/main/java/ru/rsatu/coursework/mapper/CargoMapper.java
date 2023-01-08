@@ -1,5 +1,6 @@
 package ru.rsatu.coursework.mapper;
 
+import io.quarkus.security.identity.SecurityIdentity;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -8,6 +9,7 @@ import ru.rsatu.coursework.pojo.dto.CargoViewModel;
 import ru.rsatu.coursework.pojo.entity.Cargo;
 import ru.rsatu.coursework.pojo.dto.CargoSaveModel;
 
+import javax.inject.Inject;
 import java.sql.Timestamp;
 
 /**
@@ -15,6 +17,9 @@ import java.sql.Timestamp;
  */
 @Mapper(componentModel = "cdi")
 public abstract class CargoMapper {
+    @Inject
+    SecurityIdentity securityIdentity;
+
     /**
      * Преобразовать в модель представления
      * @param from модель БД
@@ -51,6 +56,7 @@ public abstract class CargoMapper {
      */
     @AfterMapping
     protected void updateCargoAfterMapping(@MappingTarget Cargo db_model) {
-        db_model.setRecordChangeTS( new Timestamp(System.currentTimeMillis()));
+        db_model.setRecordChangeAuthor(securityIdentity.getPrincipal().getName());
+        db_model.setRecordChangeTS(new Timestamp(System.currentTimeMillis()));
     }
 }
