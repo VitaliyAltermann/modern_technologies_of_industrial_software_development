@@ -25,7 +25,7 @@ public class WaybillRep {
     public WaybillList load() {
         var result = new WaybillList();
         result.setWaybills(entityManager.createQuery(
-                "from Waybill tbl order by tbl.dateOfReceipt DESC",
+                "from Waybill tbl order by tbl.number ASC",
                 Waybill.class
         ).getResultList());
         return result;

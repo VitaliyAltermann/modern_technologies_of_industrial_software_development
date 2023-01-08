@@ -21,7 +21,7 @@ public class EmployeeRep {
      * @return список сотрудников
      */
     public List<Employee> load() {
-        return entityManager.createQuery("select tbl from Employee tbl", Employee.class)
+        return entityManager.createQuery("from Employee tbl order by tbl.name ASC", Employee.class)
                 .getResultList();
     }
 

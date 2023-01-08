@@ -21,7 +21,7 @@ public class ContractRep {
      * @return список договоров
      */
     public List<Contract> load() {
-        return entityManager.createQuery("select tbl from Contract tbl", Contract.class)
+        return entityManager.createQuery("from Contract tbl order by tbl.number ASC", Contract.class)
                 .getResultList();
     }
 

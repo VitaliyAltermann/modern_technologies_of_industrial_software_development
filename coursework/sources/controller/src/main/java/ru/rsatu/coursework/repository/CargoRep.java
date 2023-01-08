@@ -21,7 +21,7 @@ public class CargoRep {
      * @return список имущества
      */
     public List<Cargo> load() {
-        return entityManager.createQuery("select tbl from Cargo tbl", Cargo.class)
+        return entityManager.createQuery("from Cargo tbl order by tbl.name ASC", Cargo.class)
                 .getResultList();
     }
 
