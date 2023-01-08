@@ -53,17 +53,6 @@ public abstract class DetailWaybillMapper {
     public abstract DetailWaybillViewShortModel toDetailWaybillViewShortModel(DetailWaybill from);
 
     /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "cargoId", source = "cargo.id")
-    @Mapping(target = "number", source = "quantity")
-    @Mapping(target = "price", source = "price")
-    public abstract DetailWaybillSaveModel toDetailWaybillSaveModel(DetailWaybill from);
-
-    /**
      * Преобразовать в модель БД
      * @param from модель представления
      * @return модель БД

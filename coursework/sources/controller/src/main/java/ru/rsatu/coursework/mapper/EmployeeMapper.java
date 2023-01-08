@@ -30,15 +30,6 @@ public abstract class EmployeeMapper {
     public abstract EmployeeViewModel toEmployeeViewModel(Employee from);
 
     /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "name", source = "name")
-    public abstract EmployeeSaveModel toEmployeeSaveModel(Employee from);
-
-    /**
      * Преобразовать в модель БД
      * @param from модель представления
      * @return модель БД

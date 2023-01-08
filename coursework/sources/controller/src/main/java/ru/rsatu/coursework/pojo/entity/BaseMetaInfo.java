@@ -16,13 +16,13 @@ public class BaseMetaInfo {
      * Дата и время изменения записи в БД
      */
     @Column(name = "record_change_ts")
-    @Comment(value = "Дата и время создания записи в БД")
+    @Comment(value = "Дата и время изменения записи в БД")
     private Timestamp recordChangeTS;
 
     /**
      * Последний пользователь, который внёс изменения в записи в БД
      */
     @Column(name = "record_change_author")
-    @Comment(value = "Автор созданной записи в БД")
+    @Comment(value = "Последний пользователь, который внёс изменения в записи в БД")
     private String recordChangeAuthor;
 }

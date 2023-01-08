@@ -31,16 +31,6 @@ public abstract class CargoMapper {
     public abstract CargoViewModel toCargoViewModel(Cargo from);
 
     /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "name", source = "name")
-    @Mapping(target = "unit", source = "unitOfMeasure")
-    public abstract CargoSaveModel toCargoSaveModel(Cargo from);
-
-    /**
      * Преобразовать в модель БД
      * @param from модель представления
      * @return модель БД

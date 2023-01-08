@@ -2,17 +2,13 @@ package ru.rsatu.coursework.service;
 
 import ru.rsatu.coursework.mapper.WaybillMapper;
 import ru.rsatu.coursework.pojo.dto.WaybillSaveModel;
-import ru.rsatu.coursework.pojo.dto.WaybillViewFullModel;
-import ru.rsatu.coursework.pojo.dto.WaybillViewShortModel;
 import ru.rsatu.coursework.repository.WaybillRep;
 import ru.rsatu.coursework.repository.filters.WaybillLoadFilter;
-import ru.rsatu.coursework.repository.listModels.WaybillList;
 import ru.rsatu.coursework.service.listModels.WaybillViewFullModelList;
 import ru.rsatu.coursework.service.listModels.WaybillViewShortModelList;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -39,6 +35,7 @@ public class WaybillServ {
 
     /**
      * Получить фильтрованный список накладных в виде сокращённых моделей
+     * @param filter фильтр для набора накладных
      * @return фильтрованный список накладных
      */
     public WaybillViewShortModelList loadShortModels(WaybillLoadFilter filter) {

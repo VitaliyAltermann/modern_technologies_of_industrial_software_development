@@ -64,20 +64,6 @@ public abstract class WaybillMapper {
     public abstract WaybillViewShortModel toWaybillViewShortModel(Waybill from);
 
     /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "contractId", source = "contract.id")
-    @Mapping(target = "number", source = "number")
-    @Mapping(target = "dateOfReceipt", source = "dateOfReceipt")
-    @Mapping(target = "location", source = "location")
-    @Mapping(target = "deliverer", source = "deliverer")
-    @Mapping(target = "receiverId", source = "receiver.id")
-    public abstract WaybillSaveModel toWaybillSaveModel( Waybill from);
-
-    /**
      * Преобразовать в модель БД
      * @param from модель представления
      * @return модель БД

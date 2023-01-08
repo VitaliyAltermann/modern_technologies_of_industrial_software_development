@@ -33,17 +33,6 @@ public abstract class ContractMapper {
     public abstract ContractViewModel toContractViewModel(Contract from);
 
     /**
-     * Преобразовать в модель представления
-     * @param from модель БД
-     * @return модель представления
-     */
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "date", source = "dateOfCreate")
-    @Mapping(target = "number", source = "number")
-    @Mapping(target = "contractor", source = "contractor")
-    public abstract ContractSaveModel toContractSaveModel(Contract from);
-
-    /**
      * Преобразовать в модель БД
      * @param from модель представления
      * @return модель БД
