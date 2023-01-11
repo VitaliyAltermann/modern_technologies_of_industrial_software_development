@@ -34,6 +34,31 @@ public class WaybillRes {
     }
 
     /**
+     * Получить полную view-модель накладной по её идентификатору
+     * @param id идентификатор накладной
+     * @return полная view-модель накладной
+     */
+    @GET
+    @Path("/readWaybill")
+    @RolesAllowed("readWaybill")
+    @Produces(MediaType.APPLICATION_JSON)
+    public WaybillViewFullModel readFullModel(@QueryParam("id") Long id) {
+        return serv.readFullModels(id);
+    }
+
+    /**
+     * Проверить, является ли номер накладной уникальным
+     * @param number номер накладной
+     * @return true - уникальный, false - НЕ уникальный
+     */
+    @GET
+    @Path("/isUniqueWaybillNumber")
+    @RolesAllowed("readWaybill")
+    public boolean isUniqueNumber(@QueryParam("number") String number) {
+        return serv.isUniqueNumber(number);
+    }
+
+    /**
      * Получить фильтрованный список view-моделей накладных
      * @param anchor идентификатор накладной, относительно которой набираются нужно набирать данные
      * @param direction направление набора "left"/"right"

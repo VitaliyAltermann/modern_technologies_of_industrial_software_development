@@ -25,10 +25,32 @@ public class WaybillRep {
     public WaybillList load() {
         var result = new WaybillList();
         result.setWaybills(entityManager.createQuery(
-                "from Waybill tbl order by tbl.number ASC",
-                Waybill.class
-        ).getResultList());
+                "from Waybill tbl order by tbl.number ASC", Waybill.class)
+                .getResultList());
         return result;
+    }
+
+    /**
+     * Получить полную накладную по её идентификатору
+     * @param id идентификатор накладной
+     * @return полная накладная
+     */
+    public Waybill read(Long id) {
+        return entityManager.createQuery("from Waybill tbl where tbl.id = :id", Waybill.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+    /**
+     * Проверить, является ли номер накладной уникальным
+     * @param number номер накладной
+     * @return true - уникальный, false - НЕ уникальный
+     */
+    public boolean isUniqueNumber(String number) {
+        return (boolean) entityManager.createNativeQuery(
+                "SELECT COUNT(*) = 0 FROM Waybill tbl WHERE tbl.number = :number")
+                .setParameter("number", number)
+                .getSingleResult();
     }
 
     /**

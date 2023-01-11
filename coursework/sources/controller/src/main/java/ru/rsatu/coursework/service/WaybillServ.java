@@ -2,6 +2,7 @@ package ru.rsatu.coursework.service;
 
 import ru.rsatu.coursework.mapper.WaybillMapper;
 import ru.rsatu.coursework.pojo.dto.WaybillSaveModel;
+import ru.rsatu.coursework.pojo.dto.WaybillViewFullModel;
 import ru.rsatu.coursework.repository.WaybillRep;
 import ru.rsatu.coursework.repository.filters.WaybillLoadFilter;
 import ru.rsatu.coursework.service.listModels.WaybillViewFullModelList;
@@ -31,6 +32,24 @@ public class WaybillServ {
                 .map(mapper::toWaybillViewFullModel)
                 .collect(Collectors.toList()));
         return result;
+    }
+
+    /**
+     * Получить полную накладную по её идентификатору
+     * @param id идентификатор накладной
+     * @return полная накладная
+     */
+    public WaybillViewFullModel readFullModels(Long id) {
+        return mapper.toWaybillViewFullModel(rep.read(id));
+    }
+
+    /**
+     * Проверить, является ли номер накладной уникальным
+     * @param number номер накладной
+     * @return true - уникальный, false - НЕ уникальный
+     */
+    public boolean isUniqueNumber(String number) {
+        return rep.isUniqueNumber(number);
     }
 
     /**
