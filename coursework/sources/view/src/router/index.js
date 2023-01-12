@@ -15,7 +15,7 @@ const routes = [  //здесь необходимо добавить пути д
     } 
   },
   {
-    path: '/createWaybill',
+    path: '/createWaybill/:id?',
     name: 'createWaybill',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

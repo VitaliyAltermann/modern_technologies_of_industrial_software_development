@@ -1,19 +1,21 @@
 <template>
   <div class="createEmployee">
     <div>
-        <h3>Добавление сотрудника / изменение информации о сотруднике</h3>
+        <h3 class="mx-auto" style="width: 100%">Добавление сотрудника / изменение информации о сотруднике</h3>
         <!-- Подписи полей -->
-        <b-row>
-          <b-col lq="2"> <label>Cотрудник (выберите, если необходимо изменить информацию)</label></b-col>
-          <b-col lq="2"> <label>ФИО сотрудника</label></b-col>
-          <b-col cols="1"></b-col>
+        <b-row class="mx-auto" style="width: 100%">
+          <b-col cols="2"> </b-col>
+          <b-col cols="4"> <label>Cотрудник (выберите, если необходимо изменить информацию)</label></b-col>
+          <b-col cols="4"> <label>ФИО сотрудника</label></b-col>
+          <b-col cols="2"> </b-col>
           </b-row>
 
         <!-- Поля ввода -->
-        <b-row>
+        <b-row class="mx-auto" style="width: 100%">
+          <b-col cols="2"> </b-col>
           <!-- Выбор сотрудника для изменения сведений -->
-          <b-col lq="2"> 
-            <b-form-select v-model="employee"  @change="selectChange">
+          <b-col cols="4"> 
+            <b-form-select v-model="employee"  @change="selectChange" class="mx-auto" style="width: 100%">
             <!-- выбор из поля резнльтат в id options - откуда брать варианты далее поля значение и текст для отображения-->
             <template #first>
               <b-form-select-option :value=null>Добавить сотрудника</b-form-select-option>
@@ -23,13 +25,18 @@
           </b-col>
 
           <!-- Ввод ФИО -->
-          <b-col lq="2"> <b-form-input v-model="name"  @update="infChange"
+          <b-col cols="4"> <b-form-input v-model="name"  @update="infChange"
             type='text' 
             placeholder="Введите ФИО сотрудника"> 
             required            
           </b-form-input></b-col> <!-- v-model - переменная, в которую сохранить значение, type - тип вводимого значения, required - обязательно для заполнения-->
-          <b-col cols="1"></b-col>
+          <b-col cols="2"> </b-col>
         </b-row>
+
+        <!-- пропуск строки -->
+        <b-row class="mx-auto" style="width: 100%">
+          <b-col cols="4"> <label>  </label></b-col>
+        </b-row >
 
         <b-button :disabled.sync="bdis" variant="outline-primary" @click="sendRequest">{{buttonText}}{{ name }} </b-button>
         <!-- :disabled.sync="переменная со значением" - доступна ли кнопка @click"имя метода" - вызов метода при нжатии  -->
