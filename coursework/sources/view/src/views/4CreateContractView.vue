@@ -116,7 +116,7 @@ name:'createContract', //имя для подключения
 
       if ((this.date != '')&&(this.date != null)&&(this.number != '')&&(this.contractor != '')){
         if ((this.id !=null)&&(this.id!='')){ //если выбран ИД сотрудника, то обновляются данные, иначе - добавляются
-          axios.put('/server/contract/updateContract',{
+          axios.put('http://172.17.0.1:8080/coursework/api/v1/contract/updateContract',{
             id:this.id,
             date:this.date,
             number:this.number,
@@ -125,7 +125,7 @@ name:'createContract', //имя для подключения
           .then(response => (this.error=response.data+' успешно',this.sendRequestContract(),this.contract=null, this.selectChange()))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)})
         }else{
-          axios.post('/server/contract/createContract', {
+          axios.post('http://172.17.0.1:8080/coursework/api/v1/contract/createContract', {
             id:this.id,
             date:this.date,
             number:this.number,
@@ -141,7 +141,7 @@ name:'createContract', //имя для подключения
 
     sendRequestContract(){    //запрос получения сведения о сотруднике
       axios
-          .get('/server/contract/loadContract')
+          .get('http://172.17.0.1:8080/coursework/api/v1/contract/loadContract')
           .then(response => (this.contracts = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },

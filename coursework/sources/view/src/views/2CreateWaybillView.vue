@@ -334,7 +334,7 @@ name:'createWaybill', //имя для подключения
           }
           */
           
-          axios.put('/server/waybill/updateWaybill',{
+          axios.put('http://172.17.0.1:8080/coursework/api/v1/waybill/updateWaybill',{
             id:this.id,  //ИДнакладной (если не нул, то изменяются сведения)
             contractId:this.contractId,  //ИД договрора
             number:this.number,  //номер накладной
@@ -354,7 +354,7 @@ name:'createWaybill', //имя для подключения
           }
           */
           if  (this.numberUnique==true){  //если номер уникален, то добаление
-            axios.post('/server/waybill/createWaybill', {
+            axios.post('http://172.17.0.1:8080/coursework/api/v1/waybill/createWaybill', {
               id:this.id,  //ИДнакладной (если не нул, то изменяются сведения)
               contractId:this.contractId,  //ИД договрора
               number:this.number,  //номер накладной
@@ -380,7 +380,7 @@ name:'createWaybill', //имя для подключения
       if (this.number != ''){ //если номер не пустой
         if ((this.id==null)||(this.id=='')) {  //если накладная создаётся, то проверяется уникальность номера
           axios
-              .get('/server/waybill/isUniqueWaybillNumber', {params:{number:this.number}})
+              .get('http://172.17.0.1:8080/coursework/api/v1/waybill/isUniqueWaybillNumber', {params:{number:this.number}})
               .then(response => (this.numberUnique = response.data, this.error='Успешно',this.sendRequest()))
               .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
 
@@ -399,7 +399,7 @@ name:'createWaybill', //имя для подключения
 
     sendRequestWaybill(id){    //запрос получения сведений о накладной
       axios
-          .get('/server/waybill/readWaybill', {params:{id:id}})
+          .get('http://172.17.0.1:8080/coursework/api/v1/waybill/readWaybill', {params:{id:id}})
           .then(response => (this.waybill = response.data, this.error='Успешно',this.selectChange()))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },
@@ -407,17 +407,17 @@ name:'createWaybill', //имя для подключения
     sendGetReguests(){  //запросы получения сотрудников, иthis.мущества, договоров
 
       axios
-          .get('/server/employee/loadEmployee')
+          .get('http://172.17.0.1:8080/coursework/api/v1/employee/loadEmployee')
           .then(response => (this.employeers = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
 
       axios
-          .get('/server/cargo/loadCargo')
+          .get('http://172.17.0.1:8080/coursework/api/v1/cargo/loadCargo')
           .then(response => (this.cargoes = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
 
       axios
-          .get('/server/contract/loadContract')
+          .get('http://172.17.0.1:8080/coursework/api/v1/contract/loadContract')
           .then(response => (this.contracts = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },

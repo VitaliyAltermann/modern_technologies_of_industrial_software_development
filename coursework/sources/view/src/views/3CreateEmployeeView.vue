@@ -93,7 +93,7 @@ name:'createEmployee', //имя для подключения
 
       if (this.name != ''){
         if ((this.id !=null)&&(this.id!='')){ //если выбран ИД сотрудника, то обновляются данные, иначе - добавляются
-          axios.put('/server/employee/updateEmployee',{
+          axios.put('http://172.17.0.1:8080/coursework/api/v1/employee/updateEmployee',{
             id:this.id,
             name:this.name,
             /*
@@ -105,7 +105,7 @@ name:'createEmployee', //имя для подключения
           .then(response => (this.error=response.data+' успешно', this.sendRequestEmployee(),this.employee=null, this.selectChange()))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)})
         }else{
-          axios.post('/server/employee/createEmployee', {
+          axios.post('http://172.17.0.1:8080/coursework/api/v1/employee/createEmployee', {
             id:this.id,
             name:this.name
           })
@@ -119,7 +119,7 @@ name:'createEmployee', //имя для подключения
 
     sendRequestEmployee(){    //запрос получения сведения о сотруднике
       axios
-          .get('/server/employee/loadEmployee')
+          .get('http://172.17.0.1:8080/coursework/api/v1/employee/loadEmployee')
           .then(response => (this.employeers = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },
