@@ -1,4 +1,4 @@
-1) Запустить в вдокере сервер БД (на своём порту 5445):
+1) Запустить в докере сервер БД (на своём порту 5445):
    sudo docker start postgres-coursework
 2) Запустить из докера keycloak (на своём порту 8180).
    sudo docker start keycloak
@@ -12,7 +12,6 @@
    npm rebuild
 
 
-
 Команды для работы с докером:
  Для запуска демона докера ввести последовательно следующие команды:
  sudo systemctl unmask docker
@@ -22,11 +21,25 @@
  sudo systemctl status docker
  
  Команды для создания и запуска контейнера в докере:
- sudo docker run --rm=false --name postgres-coursework -e POSTGRES_USER=coursework -e POSTGRES_PASSWORD=coursework -e POSTGRES_DB=coursework -p 5432:5432 postgres:12
  sudo docker run --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:17.0.0 start-dev
- 
+ sudo docker run --rm=false --name postgres-coursework -e POSTGRES_USER=coursework -e POSTGRES_PASSWORD=coursework -e POSTGRES_DB=coursework -p 5432:5432 postgres:12
+ sudo docker run -i --rm --name backend -p 8080:8080 quarkus/coursework-jvm
+ sudo docker run -i --rm --name frontend -p 3000:80 my-work
+ !!ВАЖНО!!! При создании контейнера с view-частью добаляется Nginx, который слушает порт 80 и сам перенаправляет на порт 8080 визуальной части. Поэтому во внешний мир пробрасывается именно он (порт 80)
+
  Команда для остановки контейнера (из другого терминала):
  sudo docker stop postgres-coursework
  
  Команда для запуска контейнера:
  sudo docker start postgres-coursework
+
+
+Создание изображений view-части (!!!ВАЖНО!!! Запускать в корневой папке view-проекта):
+ sudo docker build -f docker/Dockerfile.vue -t my-work .
+
+
+Создание изображений серверной части (!!!ВАЖНО!!! Запускать в корневой папке controller-проекта):
+ Опсание последовательности действий находиться по адресу "controller/src/main/docker/Dockerfile.jvm"
+ Там будет такая последователность:
+ sudo ./mvnw package
+ sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/coursework-jvm .
