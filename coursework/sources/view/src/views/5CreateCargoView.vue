@@ -108,7 +108,7 @@ name:'createCargo', //имя для подключения
 
       if ((this.name != '')&&(this.unit != null)){
         if ((this.id !=null)&&(this.id!='')){ //если выбран ИД сотрудника, то обновляются данные, иначе - добавляются
-          axios.put('http://172.17.0.1:8080/coursework/api/v1/cargo/updateCargo',{
+          axios.put('/server/cargo/updateCargo',{
             id:this.id,
             name:this.name,
             unit:this.unit,
@@ -117,7 +117,7 @@ name:'createCargo', //имя для подключения
           .then(response => (this.error=response.data+' успешно',this.sendRequestCargo(), this.cargo=null, this.selectChange()))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)})
         }else{
-          axios.post('http://172.17.0.1:8080/coursework/api/v1/cargo/createCargo', {
+          axios.post('/server/cargo/createCargo', {
             id:this.id,
             name:this.name,
             unit:this.unit, 
@@ -132,7 +132,7 @@ name:'createCargo', //имя для подключения
 
     sendRequestCargo(){    //запрос получения сведения об имуществе
       axios
-          .get('http://172.17.0.1:8080/coursework/api/v1/cargo/loadCargo')
+          .get('/server/cargo/loadCargo')
           .then(response => (this.cargoes = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },

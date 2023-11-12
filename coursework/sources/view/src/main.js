@@ -13,17 +13,6 @@ import '@/plugins/keycloak'
 import { updateToken } from '@/plugins/keycloak-util'
 
 
-//доступ
-/*
-let initOptions = {
-  url: 'http://127.0.0.1:8180/', realm: 'coursework', clientId: 'my-work', onLoad: 'login-required'
-}
-
-let keycloak = Keycloak(initOptions);
-
-*/
-
-
 // Сделайте BootstrapVue доступным для всего проекта
 Vue.use(BootstrapVue, axios, VueAxios)
 

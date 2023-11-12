@@ -286,7 +286,7 @@ name:'createWaybill', //имя для подключения
       
 
       axios
-          .get('http://172.17.0.1:8080/coursework/api/v1/waybill/loadWaybillFilter',{
+          .get('/server/waybill/loadWaybillFilter',{
             params:{
               anchor: anchor,
               direction:direction,
@@ -328,7 +328,7 @@ name:'createWaybill', //имя для подключения
     sendRequestEmployee(){  //получение списка всех сотрудников
 
       axios
-          .get('http://172.17.0.1:8080/coursework/api/v1/employee/loadEmployee')
+          .get('/server/employee/loadEmployee')
           .then(response => (this.employeers = response.data, this.error='Успешно'))
           .catch(e => {this.error=e, alert("Ошибка при выполнении запроса, проверьте подключение и повторите попытку: "+e)});
     },

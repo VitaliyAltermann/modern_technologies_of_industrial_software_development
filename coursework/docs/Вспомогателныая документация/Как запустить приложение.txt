@@ -41,5 +41,5 @@
 Создание изображений серверной части (!!!ВАЖНО!!! Запускать в корневой папке controller-проекта):
  Опсание последовательности действий находиться по адресу "controller/src/main/docker/Dockerfile.jvm"
  Там будет такая последователность:
- sudo ./mvnw package
+ sudo ./mvnw -Dmaven.test.skip=true package
  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/coursework-jvm .
