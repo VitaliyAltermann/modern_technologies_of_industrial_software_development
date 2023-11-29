@@ -43,3 +43,11 @@
  Там будет такая последователность:
  sudo ./mvnw -Dmaven.test.skip=true package
  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/coursework-jvm .
+
+Порядок запуска докеров:
+ 1) keycloak
+ 2) db
+ 3) view_and_back
+
+Для разрешения псевдонима keycloak в файл /etc/hosts добавить строку:
+ 172.20.0.2 keycloak
