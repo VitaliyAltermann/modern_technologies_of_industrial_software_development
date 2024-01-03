@@ -33,6 +33,9 @@
  Команда для запуска контейнера:
  sudo docker start postgres-coursework
 
+ Комнда просомтра адресов контейнеров:
+ sudo docker network inspect net_1
+
 
 Создание изображений view-части (!!!ВАЖНО!!! Запускать в корневой папке view-проекта):
  sudo docker build -f docker/Dockerfile.vue -t my-work .
@@ -45,9 +48,10 @@
  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/coursework-jvm .
 
 Порядок запуска докеров:
- 1) keycloak
- 2) db
- 3) view_and_back
+ 1) keycloak -> [172.18.0.2]
+ 2) ELK -> [172.18.0.3 | 172.18.0.4 | 172.18.0.5]
+ 3) db -> [172.18.0.6]
+ 4) view_and_back -> [172.18.0.7 | 172.18.0.8 | 172.18.0.9]
 
 Для разрешения псевдонима keycloak в файл /etc/hosts добавить строку:
- 172.20.0.2 keycloak
+ 172.18.0.2 keycloak
