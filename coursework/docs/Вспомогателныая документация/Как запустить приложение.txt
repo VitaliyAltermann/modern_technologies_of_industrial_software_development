@@ -40,6 +40,10 @@
 Создание изображений view-части (!!!ВАЖНО!!! Запускать в корневой папке view-проекта):
  sudo docker build -f docker/Dockerfile.vue -t my-work .
 
+Сохранить в арфхив образ контейнера:
+ sudo docker save -o <path for generated tar file> <image name>
+Загрузить образ контейнера из архива:
+ sudo docker load -i <path to image tar file>
 
 Создание изображений серверной части (!!!ВАЖНО!!! Запускать в корневой папке controller-проекта):
  Опсание последовательности действий находиться по адресу "controller/src/main/docker/Dockerfile.jvm"
@@ -51,8 +55,9 @@
  1) keycloak -> [172.18.0.2]
  2) ELK -> [172.18.0.3 | 172.18.0.4 | 172.18.0.5]
  3) db -> [172.18.0.6]
- 4) view_and_back -> [172.18.0.7 | 172.18.0.8 | 172.18.0.9]
- 5) prometheus -> [172.18.0.10 | 172.18.0.11]
+ 4) Consul -> [172.18.0.7]
+ 5) view_and_back -> [172.18.0.8 | 172.18.0.9 | 172.18.0.10]
+ 6) prometheus -> [172.18.0.11 | 172.18.0.12]
 
 Для разрешения псевдонима keycloak в файл /etc/hosts добавить строку:
  172.18.0.2 keycloak
