@@ -7,7 +7,7 @@ module.exports = defineConfig({
     port: 3000,     //порт запуска
     proxy: {    //настройка проксирования
         '/server': {  //все запросы на адрес
-            target: 'http://backend:8081/coursework/api/v1',  // будут направлены сюда
+            target: 'http://192.168.122.7:8081/coursework/api/v1',  // будут направлены сюда
             ws: true,
             changeOrigin: true,  
             pathRewrite: {

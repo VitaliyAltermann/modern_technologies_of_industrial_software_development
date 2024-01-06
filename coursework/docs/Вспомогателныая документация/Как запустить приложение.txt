@@ -37,13 +37,14 @@
  sudo docker network inspect net_1
 
 
-Создание изображений view-части (!!!ВАЖНО!!! Запускать в корневой папке view-проекта):
- sudo docker build -f docker/Dockerfile.vue -t my-work .
-
 Сохранить в арфхив образ контейнера:
  sudo docker save -o <path for generated tar file> <image name>
 Загрузить образ контейнера из архива:
  sudo docker load -i <path to image tar file>
+
+
+Создание изображений view-части (!!!ВАЖНО!!! Запускать в корневой папке view-проекта):
+ sudo docker build -f docker/Dockerfile.vue -t my-work .
 
 Создание изображений серверной части (!!!ВАЖНО!!! Запускать в корневой папке controller-проекта):
  Опсание последовательности действий находиться по адресу "controller/src/main/docker/Dockerfile.jvm"

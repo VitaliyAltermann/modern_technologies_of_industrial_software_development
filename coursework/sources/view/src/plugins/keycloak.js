@@ -3,7 +3,7 @@ import Keycloak from 'keycloak-js'
 //import KeycloakService from 'keycloak-js'
 
 const initOptions = {
-    url: 'http://keycloak:8080/', realm: 'coursework', clientId: 'my-work', onLoad: 'login-required'
+    url: 'http://192.168.122.2:8080/', realm: 'coursework', clientId: 'my-work', onLoad: 'login-required'
   }
 
 const keycloak = new Keycloak(initOptions)
